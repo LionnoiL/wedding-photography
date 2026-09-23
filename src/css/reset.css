@@ -1,34 +1,76 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  font-family: var(--font-family);
+  color: var(--color-scheme-1-text);
+  background-color: var(--color-scheme-1-background);
+  line-height: 1.5;
+}
+
+main {
+  flex-grow: 1;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p {
-  margin: 0;
+h6 {
+  font-weight: inherit;
 }
 
-p:last-child {
-  margin-bottom: 0;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
+ul,
+ol {
   list-style: none;
 }
 
 a {
-  color: currentColor;
+  color: inherit;
   text-decoration: none;
 }
 
-button {
-  cursor: pointer;
-}
-
-img {
+img,
+picture,
+video,
+svg {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+address {
+  font-style: normal;
 }
