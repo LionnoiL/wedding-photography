@@ -76,6 +76,20 @@
 - `--font-family` - Mulish (основний текст, кнопки).
 - `--second-family` - Cormorant (заголовки).
 
+## Анімації - єдиний тайминг
+
+Швидкість переходів/анімацій **не хардкодимо**. Один тайминг на весь проєкт -
+беремо змінні з `base.css`:
+
+- `--transition-duration` - тривалість.
+- `--transition-timing` - функція згладжування.
+
+```css
+.portfolio__button {
+  transition: background-color var(--transition-duration) var(--transition-timing);
+}
+```
+
 ## Адаптив - mobile-first
 
 Базові стилі пишемо під мобільний, далі розширюємо через `min-width`. Три
