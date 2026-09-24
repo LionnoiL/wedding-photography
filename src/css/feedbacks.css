@@ -1,0 +1,150 @@
+.feedbacks {
+  padding-top: 64px;
+  padding-bottom: 64px;
+  background-color: var(--color-scheme-1-background);
+  color: var(--color-scheme-1-text);
+}
+
+.feedbacks__header {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.feedbacks__ornament {
+  color: var(--color-curious-blue);
+}
+
+.feedbacks__title {
+  font-family: var(--second-family);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.feedbacks__description {
+  max-width: 600px;
+  color: var(--color-neutral-dark);
+  text-align: center;
+}
+
+.feedbacks__slider {
+  overflow: hidden;
+}
+
+/*
+  Swiper sets height:100% on slides, which blocks align-items:stretch from equalizing them.
+  Its CSS is injected after styles.css, so the swiper-slide class is needed to win on specificity.
+*/
+.feedbacks__item.swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+.feedbacks__quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  flex-grow: 1;
+  border: 1px solid var(--color-scheme-1-border);
+  border-radius: 16px;
+  padding: 24px;
+  background: var(--color-scheme-2-foreground);
+}
+
+.feedbacks__text {
+  color: var(--color-neutral-dark);
+}
+
+.feedbacks__author {
+  font-family: var(--second-family);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.feedbacks__navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* Swiper positions pagination absolutely by default — it sits in the flex row here */
+.feedbacks__pagination {
+  --swiper-pagination-color: var(--color-neutral-darkest);
+  --swiper-pagination-bullet-inactive-color: var(--color-neutral-darkest);
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+
+  position: static;
+  width: auto;
+}
+
+.feedbacks__buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.feedbacks__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-scheme-1-border);
+  border-radius: 8px;
+  color: var(--color-neutral-darkest);
+  transition:
+    background-color var(--transition-duration) var(--transition-timing),
+    border-color var(--transition-duration) var(--transition-timing),
+    color var(--transition-duration) var(--transition-timing);
+}
+
+.feedbacks__icon {
+  fill: currentColor;
+}
+
+.feedbacks__button:hover,
+.feedbacks__button:focus-visible {
+  background: var(--color-curious-blue);
+}
+
+.feedbacks__button:active {
+  box-shadow:
+    inset 0 2px 4px -2px var(--opacity-neutral-darkest-5),
+    inset 0 4px 8px -2px var(--opacity-neutral-darkest-10);
+  background: var(--color-curious-blue-light);
+}
+
+.feedbacks__button:disabled {
+  color: var(--color-neutral-light);
+  border-color: var(--color-neutral-light);
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: transparent;
+}
+
+@media (min-width: 768px) {
+  .feedbacks__title {
+    font-size: 36px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .feedbacks {
+    padding-top: 92px;
+    padding-bottom: 92px;
+  }
+
+  .feedbacks__title {
+    font-size: 48px;
+  }
+}
