@@ -23,7 +23,7 @@
       var(--opacity-neutral-darkest-20) 0%,
       var(--opacity-neutral-darkest-60) 100%
     ),
-    url('../img/hero/hero-mob-bg.webp');
+    url('./img/hero/hero-mob-bg.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -37,7 +37,7 @@
         var(--opacity-neutral-darkest-20) 0%,
         var(--opacity-neutral-darkest-60) 100%
       ),
-      url('../img/hero/hero-mob-bg@2x.webp');
+      url('./img/hero/hero-mob-bg@2x.webp');
   }
 }
 
@@ -79,7 +79,7 @@
 
   font-family: var(--font-family);
   font-weight: 500;
-  font-size: 16px;
+
   line-height: 1.5;
   text-align: center;
   text-decoration: none;
@@ -119,7 +119,7 @@
         var(--opacity-neutral-darkest-20) 0%,
         var(--opacity-neutral-darkest-60) 100%
       ),
-      url('../img/hero/hero-tab-bg.webp');
+      url('./img/hero/hero-tab-bg.webp');
   }
   @media (min-resolution: 192dpi) {
     .hero__container {
@@ -129,7 +129,7 @@
           var(--opacity-neutral-darkest-20) 0%,
           var(--opacity-neutral-darkest-60) 100%
         ),
-        url('../img/hero/hero-tab-bg@2x.webp');
+        url('./img/hero/hero-tab-bg@2x.webp');
     }
   }
   .hero__title {
@@ -186,7 +186,7 @@
         var(--opacity-neutral-darkest-20) 0%,
         var(--opacity-neutral-darkest-60) 100%
       ),
-      url('../img/hero/hero-desk-bg.webp');
+      url('./img/hero/hero-desk-bg.webp');
   }
   @media (min-resolution: 192dpi) {
     .hero__container {
@@ -196,7 +196,7 @@
           var(--opacity-neutral-darkest-20) 0%,
           var(--opacity-neutral-darkest-60) 100%
         ),
-        url('../img/hero/hero-desk-bg@2x.webp');
+        url('./img/hero/hero-desk-bg@2x.webp');
     }
   }
 
