@@ -1,1 +1,85 @@
-<!-- comment -->
+<section class="contacts" id="contacts">
+  <div class="container contacts__container">
+    <div class="contacts__info">
+      <div class="contacts__text">
+        <svg
+          class="contacts__ornament"
+          width="300"
+          height="20"
+          aria-hidden="true"
+        >
+          <use href="./img/sprite.svg#icon-decoration"></use>
+        </svg>
+        <h2 class="contacts__title">Let's Tell Your Story</h2>
+        <p class="contacts__description">
+          I can't wait to hear more about your wedding! Tell me about your
+          plans, and I'll be in touch to discuss how we can create magic
+          together.
+        </p>
+      </div>
+      <address class="contacts__address">
+        <div class="contacts__email">
+          <svg
+            class="contacts__email__img"
+            width="24"
+            height="24"
+            aria-hidden="true"
+          >
+            <use href="./img/sprite.svg#icon-mail"></use>
+          </svg>
+          <a href="mailto:info@mariakovalenko.com" class="contacts__icon"
+            >info@mariakovalenko.com</a
+          >
+        </div>
+        <div class="contacts__phone">
+          <svg class="contacts__icon" width="24" height="24" aria-hidden="true">
+            <use href="./img/sprite.svg#icon-call"></use>
+          </svg>
+          <a href="tel:+405551234567" class="contacts__address__phone"
+            >+40 (555) 123-4567</a
+          >
+        </div>
+        <div class="contacts__location">
+          <svg class="contacts__icon" width="24" height="24" aria-hidden="true">
+            <use href="./img/sprite.svg#icon-location-on"></use>
+          </svg>
+          <p class="contacts__location__text">
+            Raschdorffstraße 2-26, 13409 Berlin, Germany
+          </p>
+        </div>
+      </address>
+    </div>
+    <div class="contacts__form__container">
+      <form class="contacts__form">
+        <label class="contacts__label"
+          >Name*
+          <input
+            type="text"
+            name="username"
+            class="contacts__input"
+            placeholder="Maria"
+            required
+        /></label>
+        <label class="contacts__label"
+          >Phone*
+          <input
+            type="tel"
+            name="telephone"
+            class="contacts__input"
+            placeholder="+1 (202) 111 2323"
+            required
+        /></label>
+        <label class="contacts__label"
+          >Message
+          <textarea
+            name="message"
+            class="contacts__textarea"
+            rows="7"
+            placeholder="Tell me a little about you and your special day. Don't forget to include your wedding date, venue, and what you're most excited about..."
+          ></textarea>
+        </label>
+        <button class="contacts__btn" type="submit">Let's Talk</button>
+      </form>
+    </div>
+  </div>
+</section>
