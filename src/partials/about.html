@@ -13,11 +13,27 @@
       blends artistry with a personal touch, ensuring that each couple's story
       is told through stunning imagery.
     </p>
-    <img
-      class="about__image"
-      src="./img/about/about.webp"
-      srcset="./img/about/about.webp 1x, ./img/about/about@2x.webp 2x"
-      alt="A newlywed couple sharing a joyful moment outdoors"
-    />
+    <picture>
+      <source
+        media="(max-width: 767px)"
+        srcset="
+          ./img/about/about-mobile.webp    1x,
+          ./img/about/about-mobile@2x.webp 2x
+        "
+      />
+      <source
+        media="(max-width: 1439px)"
+        srcset="
+          ./img/about/about-tablet.webp    1x,
+          ./img/about/about-tablet@2x.webp 2x
+        "
+      />
+      <img
+        class="about__image"
+        src="./img/about/about.webp"
+        srcset="./img/about/about.webp 1x, ./img/about/about@2x.webp 2x"
+        alt="A newlywed couple sharing a joyful moment outdoors"
+      />
+    </picture>
   </div>
 </section>
