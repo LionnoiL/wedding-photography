@@ -2,25 +2,32 @@ import iziToast from 'izitoast';
 
 import 'izitoast/dist/css/iziToast.min.css';
 
-export const success = message => {
+const baseOptionals = {
+  position: 'topRight',
+  timeout: 40000,
+  close: true,
+};
+
+export function notifySuccess(message) {
   iziToast.success({
-    message,
-    timeout: 2000,
+    ...baseOptionals,
+    message: message || 'Successfully inserted record!',
+    title: 'Success',
   });
-};
+}
 
-export const warning = message => {
+export function notifyWarning(message) {
   iziToast.warning({
+    ...baseOptionals,
+    message: message || 'You forgot important data',
     title: 'Caution',
-    message,
-    timeout: 2000,
   });
-};
+}
 
-export const error = message => {
+export function notifyError(message) {
   iziToast.error({
+    ...baseOptionals,
+    message: message || 'Something went wrong. Please try again later.',
     title: 'Error',
-    message,
-    timeout: 2000,
   });
-};
+}
