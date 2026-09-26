@@ -22,5 +22,6 @@
 @import url('./footer.css');
 
 /* Global UI */
+@import url(./scroll-up.css);
 @import url('./modal.css');
 @import url('./loader.css');
