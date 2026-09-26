@@ -4,8 +4,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-const FEEDBACKS_API_URL =
-  'https://wedding-photographer.b.goit.study/api/feedbacks';
+import { getFeedbacks } from './api.js';
+import { notifyError } from './notifications.js';
 
 const listEl = document.querySelector('.feedbacks__list');
 const prevButton = document.querySelector('.feedbacks__button--prev');
@@ -69,20 +69,13 @@ async function initFeedbacks() {
   if (!listEl) return;
 
   try {
-    const response = await fetch(FEEDBACKS_API_URL);
-
-    if (!response.ok) {
-      throw new Error(`Failed to load feedbacks: ${response.status}`);
-    }
-
-    const { feedbacks } = await response.json();
+    const { feedbacks } = await getFeedbacks({ limit: 10 });
 
     listEl.innerHTML = feedbacks.map(createFeedbackMarkup).join('');
 
     initSwiper();
   } catch (error) {
-    listEl.innerHTML =
-      '<li class="feedbacks__item feedbacks__item--error">Unable to load feedbacks right now. Please try again later.</li>';
+    notifyError(error.message);
     console.error(error);
   }
 }
