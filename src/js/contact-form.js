@@ -67,7 +67,6 @@ async function formHandler(event) {
     openModal();
     form.reset();
   } catch (error) {
-    notifyError('Something went wrong. Please try again later.');
   } finally {
     submitBtn.disabled = false;
     //   отут треба прибрати лоадер
