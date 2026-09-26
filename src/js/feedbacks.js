@@ -75,7 +75,6 @@ async function initFeedbacks() {
 
     initSwiper();
   } catch (error) {
-    notifyError(error.message);
     console.error(error);
   }
 }

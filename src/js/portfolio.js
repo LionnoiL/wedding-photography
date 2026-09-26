@@ -51,7 +51,6 @@ async function fetchAndRenderPhotos(limit) {
     refs.loadMoreBtn.disabled = isEnd;
   } catch (error) {
     console.error('Failed to load portfolio photos:', error);
-    notifyError(error.message);
     refs.loadMoreBtn.disabled = false;
   } finally {
     refs.loadMoreBtn.removeAttribute('aria-busy');
