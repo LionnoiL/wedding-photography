@@ -1,5 +1,5 @@
 import { createOrder } from './api.js';
-import { notifyWarning, notifyError } from './notifications.js';
+import { notifyWarning } from './notifications.js';
 import { openModal } from '../js/modal.js';
 
 const form = document.querySelector('.contacts__form');
