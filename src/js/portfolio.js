@@ -1,17 +1,12 @@
 import { getPhotos } from './api.js';
 import { notifyError } from './notifications.js';
-import {
-  DEFAULT_PAGE,
-  INITIAL_PHOTOS_LIMIT,
-  LOAD_MORE_PHOTOS_LIMIT,
-} from './constants.js';
+import { INITIAL_PHOTOS_LIMIT, LOAD_MORE_PHOTOS_LIMIT } from './constants.js';
 
 const refs = {
   gallery: document.querySelector('.portfolio__list'),
   loadMoreBtn: document.querySelector('.portfolio__button'),
 };
 
-let page = DEFAULT_PAGE;
 let loadedCount = 0;
 let totalPhotos = null;
 
@@ -34,6 +29,8 @@ async function fetchAndRenderPhotos(limit) {
   refs.loadMoreBtn.disabled = true;
   refs.loadMoreBtn.setAttribute('aria-busy', 'true');
 
+  const page = Math.floor(loadedCount / limit) + 1;
+
   try {
     const response = await getPhotos({ page, limit });
     const { photos, total } = normalizeResponse(response);
@@ -45,7 +42,6 @@ async function fetchAndRenderPhotos(limit) {
     if (photos.length > 0) {
       renderGallery(photos);
       loadedCount += photos.length;
-      page += 1;
     }
 
     const isEnd =
