@@ -1,12 +1,12 @@
 .feedbacks {
   padding-top: 64px;
   padding-bottom: 64px;
-  background-color: var(--color-scheme-1-background);
+  background-color: var(--color-scheme-2-background);
   color: var(--color-scheme-1-text);
 }
 
 .feedbacks__header {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -14,7 +14,7 @@
 }
 
 .feedbacks__ornament {
-  color: var(--color-curious-blue);
+  fill: var(--color-neutral-darkest);
 }
 
 .feedbacks__title {
@@ -27,13 +27,19 @@
 }
 
 .feedbacks__description {
-  max-width: 600px;
-  color: var(--color-neutral-dark);
+  max-width: 768px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
   text-align: center;
 }
 
 .feedbacks__slider {
   overflow: hidden;
+  /* Breathing room so the 2px card border isn't clipped by overflow on edge
+     slides; negative margin keeps the slides aligned with the header/nav. */
+  margin-inline: -4px;
+  padding-inline: 4px;
 }
 
 /*
@@ -49,23 +55,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px;
+  gap: 24px;
   flex-grow: 1;
-  border: 1px solid var(--color-scheme-1-border);
+  border: 2px solid var(--color-scheme-1-border);
   border-radius: 16px;
-  padding: 24px;
+  padding: 32px;
   background: var(--color-scheme-2-foreground);
 }
 
 .feedbacks__text {
-  color: var(--color-neutral-dark);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-scheme-1-text);
 }
 
 .feedbacks__author {
-  font-family: var(--second-family);
+  font-family: var(--font-family);
   font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 600;
+  font-size: 16px;
 }
 
 .feedbacks__navigation {
@@ -97,11 +105,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--color-scheme-1-border);
-  border-radius: 8px;
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--color-scheme-1-border);
+  border-radius: 4px;
   color: var(--color-neutral-darkest);
+  background: var(--color-scheme-2-foreground);
   transition:
     background-color var(--transition-duration) var(--transition-timing),
     border-color var(--transition-duration) var(--transition-timing),
