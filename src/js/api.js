@@ -7,6 +7,8 @@ import {
   DEFAULT_FEEDBACKS_LIMIT,
 } from './constants.js';
 
+import { notifyError } from './notifications.js';
+
 const httpClient = axios.create({
   baseURL: API_BASE_URL,
   timeout: 10000,
@@ -24,7 +26,7 @@ httpClient.interceptors.response.use(
       'Something went wrong. Please try again later.';
 
     console.error(`[API] ${message}`, error);
-
+    notifyError(message);
     return Promise.reject(new Error(message));
   }
 );
