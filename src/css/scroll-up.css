@@ -1,0 +1,67 @@
+.scroll__up {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+
+    border: 2px solid var(--color-scheme-2-border);
+    border-radius: 50%;
+    background-color: var(--color-curious-blue);
+    color: var(--color-scheme-2-text);
+    box-shadow: 0 4px 12px var(--opacity-neutral-darkest-15);
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px);
+    transition:
+        opacity var(--transition-duration) var(--transition-timing),
+        visibility var(--transition-duration) var(--transition-timing),
+        transform var(--transition-duration) var(--transition-timing),
+        background-color var(--transition-duration) var(--transition-timing);
+}
+
+.scroll__up.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.scroll__up:hover,
+.scroll__up:focus-visible {
+    background-color: var(--color-curious-blue-lightest);
+    border-color: var(--color-curious-blue);
+}
+
+.scroll__up:focus-visible {
+    outline: 2px solid var(--color-neutral-darkest);
+    outline-offset: 3px;
+}
+
+.scroll__up__icon {
+    fill: currentColor;
+    transform: rotate(-90deg);
+}
+
+@media screen and (min-width: 768px) {
+    .scroll__up {
+        right: 32px;
+        bottom: 32px;
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .scroll__up {
+        right: 40px;
+        bottom: 40px;
+    }
+}
