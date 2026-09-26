@@ -131,19 +131,20 @@
 .contacts__input:focus,
 .contacts__textarea:focus,
 .contacts__input:active,
-.contacts__textarea:active {
+.contacts__textarea:active,
+.contacts__input:focus-visible,
+.contacts__textarea:focus-visible {
   border: 2px solid var(--color-curious-blue-dark);
+  outline: none;
 }
 
-/* не впевнена, що робити, щоб ці елементи не були червоними зразу */
-
-/* .contacts__input:invalid {
+.contacts--invalid {
   border: 2px solid var(--red);
 }
 
-.contacts__input:invalid::placeholder {
+.contacts--invalid::placeholder {
   color: var(--red);
-} */
+}
 
 .contacts__btn {
   display: flex;
