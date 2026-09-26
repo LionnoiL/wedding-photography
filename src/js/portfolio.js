@@ -1,14 +1,17 @@
 import { getPhotos } from './api.js';
 import { notifyError } from './notifications.js';
+import {
+  DEFAULT_PAGE,
+  INITIAL_PHOTOS_LIMIT,
+  LOAD_MORE_PHOTOS_LIMIT,
+} from './constants.js';
 
 const refs = {
   gallery: document.querySelector('.portfolio__list'),
   loadMoreBtn: document.querySelector('.portfolio__button'),
 };
 
-const INITIAL_LIMIT = 9;
-const LOAD_MORE_LIMIT = 3;
-
+let page = DEFAULT_PAGE;
 let loadedCount = 0;
 let totalPhotos = null;
 
@@ -20,20 +23,18 @@ async function init() {
   refs.gallery.innerHTML = '';
   refs.loadMoreBtn.addEventListener('click', onLoadMoreClick);
 
-  await fetchAndRenderPhotos(INITIAL_LIMIT);
+  await fetchAndRenderPhotos(INITIAL_PHOTOS_LIMIT);
 }
 
 async function onLoadMoreClick() {
-  await fetchAndRenderPhotos(LOAD_MORE_LIMIT);
+  await fetchAndRenderPhotos(LOAD_MORE_PHOTOS_LIMIT);
 }
 
 async function fetchAndRenderPhotos(limit) {
-  setLoading(true);
+  refs.loadMoreBtn.disabled = true;
+  refs.loadMoreBtn.setAttribute('aria-busy', 'true');
 
   try {
-    const page =
-      limit === INITIAL_LIMIT ? 1 : Math.floor(loadedCount / limit) + 1;
-
     const response = await getPhotos({ page, limit });
     const { photos, total } = normalizeResponse(response);
 
@@ -44,6 +45,7 @@ async function fetchAndRenderPhotos(limit) {
     if (photos.length > 0) {
       renderGallery(photos);
       loadedCount += photos.length;
+      page += 1;
     }
 
     const isEnd =
@@ -52,11 +54,11 @@ async function fetchAndRenderPhotos(limit) {
 
     refs.loadMoreBtn.disabled = isEnd;
   } catch (error) {
-    console.error('Не вдалося завантажити фотографії портфоліо:', error);
+    console.error('Failed to load portfolio photos:', error);
     notifyError(error.message);
     refs.loadMoreBtn.disabled = false;
   } finally {
-    setLoading(false);
+    refs.loadMoreBtn.removeAttribute('aria-busy');
   }
 }
 
@@ -87,10 +89,4 @@ function normalizeResponse(response) {
   }));
 
   return { photos, total };
-}
-
-function setLoading(isLoading) {
-  refs.gallery.classList.toggle('portfolio__list--loading', isLoading);
-  refs.loadMoreBtn.disabled = isLoading;
-  refs.loadMoreBtn.setAttribute('aria-busy', String(isLoading));
 }
