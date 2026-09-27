@@ -5,12 +5,27 @@
     <link rel="icon" type="image/svg+xml" href="/wedding-photography/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding Photography</title>
+    <meta
+      name="description"
+      content="Maria Kovalenko Photography — wedding photographer in Berlin. Capturing genuine emotions and timeless memories of your special day. Book a session."
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Mulish:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Mulish:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
     <script type="module" crossorigin src="/wedding-photography/index.js"></script>
     <link rel="modulepreload" crossorigin href="/wedding-photography/assets/vendor-CdRQm6I4.js">
     <link rel="stylesheet" crossorigin href="/wedding-photography/assets/vendor-BZme-2De.css">
