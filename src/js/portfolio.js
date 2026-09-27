@@ -1,5 +1,4 @@
 import { getPhotos, getCategories } from './api.js';
-import { notifyError } from './notifications.js';
 import { INITIAL_PHOTOS_LIMIT, LOAD_MORE_PHOTOS_LIMIT } from './constants.js';
 
 const refs = {
@@ -148,7 +147,7 @@ function createFilterButtonMarkup({ id, name, isActive = false }) {
   `;
 }
 
-function onFilterClick(event) {
+async function onFilterClick(event) {
   const button = event.target.closest('.portfolio__filter');
   if (!button || button.classList.contains('portfolio__filter--active')) return;
 
@@ -160,7 +159,10 @@ function onFilterClick(event) {
   button.classList.add('portfolio__filter--active');
 
   resetGallery();
-  fetchAndRenderPhotos(INITIAL_PHOTOS_LIMIT);
+
+  refs.loadMoreBtn.hidden = true;
+  await fetchAndRenderPhotos(INITIAL_PHOTOS_LIMIT);
+  refs.loadMoreBtn.hidden = false;
 }
 
 function resetGallery() {
