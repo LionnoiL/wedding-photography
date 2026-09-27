@@ -1,6 +1,5 @@
-// import Accordion from 'accordion-js';
-// import 'accordion-js/dist/accordion.min.css';
+import Accordion from 'accordion-js';
 
-// new Accordion('.questions-list', {
-//   duration: 300,
-// });
+new Accordion('.faq__list', {
+  duration: 300,
+});
