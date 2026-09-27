@@ -1,5 +1,10 @@
 import { getPhotos, getCategories } from './api.js';
-import { INITIAL_PHOTOS_LIMIT, LOAD_MORE_PHOTOS_LIMIT } from './constants.js';
+import {
+  INITIAL_PHOTOS_LIMIT,
+  LOAD_MORE_PHOTOS_LIMIT,
+  IMG_PROXY,
+  PORTFOLIO_THUMB_SIZE,
+} from './constants.js';
 import { showLoader, hideLoader } from '../js/loader.js';
 
 const refs = {
@@ -75,12 +80,28 @@ function renderGallery(photos) {
   refs.gallery.insertAdjacentHTML('beforeend', createGalleryMarkup(photos));
 }
 
+function optimizedSrc(url, size) {
+  const origin = url.replace(/^https?:\/\//, '');
+  return `${IMG_PROXY}${origin}&w=${size}&h=${size}&fit=cover&output=webp&q=80`;
+}
+
 function createGalleryMarkup(photos) {
   return photos
     .map(
       ({ img, title }) => `
       <li class="portfolio__item">
-        <img class="portfolio__image" src="${img}" alt="${title}" loading="lazy" />
+        <img
+          class="portfolio__image"
+          src="${optimizedSrc(img, PORTFOLIO_THUMB_SIZE)}"
+          srcset="${optimizedSrc(img, PORTFOLIO_THUMB_SIZE)} 1x, ${optimizedSrc(img, PORTFOLIO_THUMB_SIZE * 2)} 2x"
+          width="${PORTFOLIO_THUMB_SIZE}"
+          height="${PORTFOLIO_THUMB_SIZE}"
+          alt="${title}"
+          loading="lazy"
+          decoding="async"
+          data-fallback="${img}"
+          onerror="this.onerror=null;this.removeAttribute('srcset');this.src=this.dataset.fallback"
+        />
       </li>
     `
     )

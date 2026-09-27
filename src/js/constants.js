@@ -14,3 +14,7 @@ export const DEFAULT_FEEDBACKS_LIMIT = 10;
 // Portfolio ("Show More" button)
 export const INITIAL_PHOTOS_LIMIT = 9;
 export const LOAD_MORE_PHOTOS_LIMIT = 3;
+
+// Portfolio image optimization
+export const IMG_PROXY = 'https://wsrv.nl/?url=ssl:';
+export const PORTFOLIO_THUMB_SIZE = 420;

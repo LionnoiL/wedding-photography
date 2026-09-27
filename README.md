@@ -41,6 +41,11 @@ built during the GoIT course.
   `media` conditions that mirror `hero.css`, so the browser downloads exactly one
   image — no double fetch.
 - **Retina images** — hero and content images ship `1x`/`2x` WebP variants.
+- **On-the-fly image optimization** — portfolio photos come from the API
+  oversized (PNG 1280×896, ~396 KB) but render at ~420px. They are routed
+  through the [wsrv.nl](https://wsrv.nl/) proxy, which resizes and re-encodes
+  them as WebP (~25 KB, −94 %) served from its CDN, with an `onerror` fallback
+  to the original URL.
 - **Lazy, non-blocking Swiper CSS** — the slider's stylesheets are imported
   dynamically only after the feedbacks data arrives, keeping them off the
   critical path.
