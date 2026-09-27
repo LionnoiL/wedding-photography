@@ -1,8 +1,5 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Keyboard, A11y } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 import { getFeedbacks } from './api.js';
 import { notifyError } from './notifications.js';
@@ -72,6 +69,12 @@ async function initFeedbacks() {
     const { feedbacks } = await getFeedbacks({ limit: 10 });
 
     listEl.innerHTML = feedbacks.map(createFeedbackMarkup).join('');
+
+    await Promise.all([
+      import('swiper/css'),
+      import('swiper/css/navigation'),
+      import('swiper/css/pagination'),
+    ]);
 
     initSwiper();
   } catch (error) {
