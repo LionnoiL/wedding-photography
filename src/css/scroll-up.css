@@ -1,4 +1,4 @@
-.scroll__up {
+.scroll-up {
     position: fixed;
     right: 16px;
     bottom: 16px;
@@ -28,30 +28,30 @@
         background-color var(--transition-duration) var(--transition-timing);
 }
 
-.scroll__up.is-visible {
+.scroll-up.is-visible {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-.scroll__up:hover,
-.scroll__up:focus-visible {
+.scroll-up:hover,
+.scroll-up:focus-visible {
     background-color: var(--color-curious-blue-lightest);
     border-color: var(--color-curious-blue);
 }
 
-.scroll__up:focus-visible {
+.scroll-up:focus-visible {
     outline: 2px solid var(--color-neutral-darkest);
     outline-offset: 3px;
 }
 
-.scroll__up__icon {
+.scroll-up__icon {
     fill: currentColor;
     transform: rotate(-90deg);
 }
 
 @media screen and (min-width: 768px) {
-    .scroll__up {
+    .scroll-up {
         right: 32px;
         bottom: 32px;
         width: 56px;
@@ -60,7 +60,7 @@
 }
 
 @media screen and (min-width: 1440px) {
-    .scroll__up {
+    .scroll-up {
         right: 40px;
         bottom: 40px;
     }

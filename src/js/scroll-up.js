@@ -1,4 +1,4 @@
-const scrollUpBtn = document.querySelector('.scroll__up');
+const scrollUpBtn = document.querySelector('.scroll-up');
 
 if (scrollUpBtn) {
   const toggleScrollUpBtn = () => {

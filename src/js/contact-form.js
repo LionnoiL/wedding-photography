@@ -13,10 +13,10 @@ async function formHandler(event) {
 
   let isValid = true;
   function showError(input) {
-    input.classList.add('contacts--invalid');
+    input.classList.add('contacts__input--invalid');
   }
   function removeError(input) {
-    input.classList.remove('contacts--invalid');
+    input.classList.remove('contacts__input--invalid');
   }
 
   if (
@@ -56,7 +56,7 @@ async function formHandler(event) {
     formData.message = info.message.value.trim();
   }
 
-  const submitBtn = form.querySelector('.contacts__btn');
+  const submitBtn = form.querySelector('.contacts__button');
 
   try {
     if (submitBtn) {
