@@ -16,6 +16,37 @@ built during the GoIT course.
   — splits the page into HTML partials
 - [postcss-sort-media-queries](https://www.npmjs.com/package/postcss-sort-media-queries)
   — mobile-first media query sorting
+- [Swiper](https://swiperjs.com/) — feedbacks slider
+- [accordion-js](https://github.com/michu2k/Accordion) — FAQ accordion
+- [axios](https://axios-http.com/) — API requests
+- [iziToast](https://izitoast.marcelodolza.com/) — toast notifications
+
+## Features
+
+- **Fully responsive, mobile-first** layout across three breakpoints.
+- **Feedbacks slider** (Swiper) with keyboard control and accessibility labels;
+  data is fetched from the API.
+- **FAQ accordion** (accordion-js) with animated height transitions.
+- **Contact form** with client-side validation, API submission (axios) and
+  toast feedback (iziToast).
+- **Modal window**, **scroll-to-top button** and a page **loader**.
+
+## Performance & optimizations
+
+- **Non-render-blocking fonts** — Google Fonts are loaded with
+  `rel="preload" as="style"` + an `onload` swap and a `<noscript>` fallback, so
+  they no longer block the first paint.
+- **Optimized LCP** — the hero background (the LCP element) is preloaded with
+  `fetchpriority="high"`. One `<link>` fires per breakpoint × pixel density, with
+  `media` conditions that mirror `hero.css`, so the browser downloads exactly one
+  image — no double fetch.
+- **Retina images** — hero and content images ship `1x`/`2x` WebP variants.
+- **Lazy, non-blocking Swiper CSS** — the slider's stylesheets are imported
+  dynamically only after the feedbacks data arrives, keeping them off the
+  critical path.
+- **Code splitting** — third-party JS is bundled into a separate `vendor` chunk
+  via Vite's `manualChunks`.
+- Result: **~98 mobile Performance** in Lighthouse on the production build.
 
 ## Getting started
 
@@ -46,15 +77,17 @@ src/
 ├── main.js         # JavaScript entry point
 ├── partials/       # section markup (injected into index.html)
 ├── css/            # styles
-├── img/            # images (optimized at build time)
-└── public/         # static assets copied as-is
+├── img/            # images bundled & hashed by Vite
+└── public/         # static assets served as-is (favicon, hero images)
 ```
 
 - **Sections** live in `src/partials/` and are injected into `index.html`:
   header, hero, about, benefits, portfolio, feedbacks, faq, contacts, footer,
-  plus the `loader` and `modal` components.
+  plus the `loader`, `modal` and `scroll-up` components.
 - **Styles** go in `src/css/`.
-- **Images** go in `src/img/` — the build optimizes them automatically.
+- **Images** go in `src/img/` (bundled and hashed by Vite). Hero background
+  images live in `src/public/img/hero/` so their URLs stay stable and can be
+  referenced by `<link rel="preload">` in `index.html`.
 
 ## Responsive breakpoints
 
