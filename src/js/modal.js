@@ -81,7 +81,6 @@ export function openModal(modal) {
   }
 
   modalElement.hidden = false;
-  modalElement.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   (closeButtons[0] || dialog)?.focus();
 }
@@ -96,7 +95,6 @@ export function closeModal(modal = activeModal) {
   removeModalListeners?.();
   removeModalListeners = null;
   modalElement.hidden = true;
-  modalElement.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = previousBodyOverflow;
   document.body.style.paddingRight = previousBodyPaddingRight;
   activeModal = null;
