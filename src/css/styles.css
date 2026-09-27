@@ -25,4 +25,5 @@
 /* Global UI */
 @import url(./scroll-up.css);
 @import url('./modal.css');
-@import url('./loader.css');
+@import url('./vendor/ldbutton.min.css');
+@import url('./vendor/loading.min.css');
