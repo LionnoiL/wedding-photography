@@ -106,7 +106,7 @@
   }
 
   .hero__container {
-    width: calc(100%-64px);
+    width: calc(100% - 64px);
     max-width: 704px;
     min-height: 431px;
     padding: 32px;
