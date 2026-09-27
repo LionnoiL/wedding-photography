@@ -138,11 +138,11 @@
   outline: none;
 }
 
-.contacts--invalid {
+.contacts__input--invalid {
   border: 2px solid var(--red);
 }
 
-.contacts--invalid::placeholder {
+.contacts__input--invalid::placeholder {
   color: var(--red);
 }
 
