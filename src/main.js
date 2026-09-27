@@ -5,3 +5,4 @@ import './js/faq.js';
 import './js/modal.js';
 import './js/contact-form.js';
 import './js/scroll-up.js';
+import './js/loader.js';
