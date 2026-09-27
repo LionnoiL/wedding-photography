@@ -56,7 +56,7 @@ async function formHandler(event) {
     formData.message = info.message.value.trim();
   }
 
-  const submitBtn = form.querySelector('.contacts__btn');
+  const submitBtn = form.querySelector('.contacts__button');
 
   try {
     if (submitBtn) {
