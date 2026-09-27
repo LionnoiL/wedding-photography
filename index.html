@@ -68,6 +68,16 @@
         href="https://fonts.googleapis.com/css2?family=Cormorant:wght@500&family=Mulish:wght@400;500;600;700&display=swap"
       />
     </noscript>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/loadingio/ldbutton@latest/dist/index.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@latest/dist/loading.min.css"
+    />
+
     <script type="module" crossorigin src="/wedding-photography/index.js"></script>
     <link rel="modulepreload" crossorigin href="/wedding-photography/assets/vendor-1rhZ40fN.js">
     <link rel="stylesheet" crossorigin href="/wedding-photography/assets/index-Ci6Ltm_9.css">
@@ -283,7 +293,10 @@
     <ul class="portfolio__list"></ul>
 
     <div class="portfolio__actions">
-      <button class="btn portfolio__button" type="button">Show More</button>
+      <button class="btn portfolio__button ld-over-inverse" type="button">
+        Show More
+        <div class="ld ld-ring ld-spin"></div>
+      </button>
     </div>
   </div>
 </section>
@@ -495,7 +508,10 @@
           placeholder="Tell me a little about you and your special day. Don't forget to include your wedding date, venue, and what you're most excited about..."
         ></textarea>
       </label>
-      <button class="btn contacts__button" type="submit">Let's Talk</button>
+      <button class="btn contacts__button ld-over-inverse" type="submit">
+        Let's Talk
+        <div class="ld ld-ring ld-spin"></div>
+      </button>
     </form>
   </div>
 </section>
