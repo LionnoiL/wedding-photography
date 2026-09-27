@@ -175,6 +175,15 @@
 }
 
 @media (min-width: 1440px) {
+  .contacts {
+    padding-top: 92px;
+    padding-bottom: 92px;
+  }
+
+  .contacts__title {
+    font-size: 48px;
+  }
+
   .contacts__container {
     flex-direction: row;
     align-items: start;
