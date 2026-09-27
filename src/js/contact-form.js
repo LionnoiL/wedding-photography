@@ -1,6 +1,7 @@
 import { createOrder } from './api.js';
 import { notifyWarning } from './notifications.js';
 import { openModal } from '../js/modal.js';
+import { showLoader, hideLoader } from '../js/loader.js';
 
 const form = document.querySelector('.contacts__form');
 form.addEventListener('submit', formHandler);
@@ -61,7 +62,7 @@ async function formHandler(event) {
   try {
     if (submitBtn) {
       submitBtn.disabled = true;
-      // отут можна зробити лоадер видимим
+      showLoader(submitBtn);
     }
     await createOrder(formData);
     openModal();
@@ -69,6 +70,6 @@ async function formHandler(event) {
   } catch (error) {
   } finally {
     submitBtn.disabled = false;
-    //   отут треба прибрати лоадер
+    hideLoader(submitBtn);
   }
 }

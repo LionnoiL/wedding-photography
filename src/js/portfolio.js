@@ -1,5 +1,6 @@
 import { getPhotos, getCategories } from './api.js';
 import { INITIAL_PHOTOS_LIMIT, LOAD_MORE_PHOTOS_LIMIT } from './constants.js';
+import { showLoader, hideLoader } from '../js/loader.js';
 
 const refs = {
   gallery: document.querySelector('.portfolio__list'),
@@ -38,6 +39,8 @@ async function fetchAndRenderPhotos(limit) {
   const page = Math.floor(loadedCount / limit) + 1;
 
   try {
+    showLoader(refs.loadMoreBtn);
+
     const response = await getPhotos({
       category: activeCategory,
       page,
@@ -64,6 +67,7 @@ async function fetchAndRenderPhotos(limit) {
     refs.loadMoreBtn.disabled = false;
   } finally {
     refs.loadMoreBtn.removeAttribute('aria-busy');
+    hideLoader(refs.loadMoreBtn);
   }
 }
 
