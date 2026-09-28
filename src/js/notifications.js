@@ -4,7 +4,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const baseOptions = {
   position: 'topRight',
-  timeout: 4000,
+  timeout: 5000,
   close: true,
 };
 
@@ -12,7 +12,6 @@ export function notifySuccess(message) {
   iziToast.success({
     ...baseOptions,
     message: message || 'Your message has been sent successfully!',
-    title: 'Success',
   });
 }
 
