@@ -6,6 +6,7 @@ import {
   PORTFOLIO_THUMB_SIZE,
 } from './constants.js';
 import { showLoader, hideLoader } from '../js/loader.js';
+import { notifySuccess } from './notifications.js';
 
 const refs = {
   gallery: document.querySelector('.portfolio__list'),
@@ -34,10 +35,10 @@ async function init() {
 }
 
 async function onLoadMoreClick() {
-  await fetchAndRenderPhotos(LOAD_MORE_PHOTOS_LIMIT);
+  await fetchAndRenderPhotos(LOAD_MORE_PHOTOS_LIMIT, { notifyOnEnd: true });
 }
 
-async function fetchAndRenderPhotos(limit) {
+async function fetchAndRenderPhotos(limit, { notifyOnEnd = false } = {}) {
   refs.loadMoreBtn.disabled = true;
   refs.loadMoreBtn.setAttribute('aria-busy', 'true');
 
@@ -66,10 +67,17 @@ async function fetchAndRenderPhotos(limit) {
       photos.length < limit ||
       (typeof totalPhotos === 'number' && loadedCount >= totalPhotos);
 
-    refs.loadMoreBtn.disabled = isEnd;
+    if (isEnd) {
+      refs.loadMoreBtn.hidden = true;
+      if (notifyOnEnd) {
+        notifySuccess("You've reached the end of the gallery.");
+      }
+    } else {
+      refs.loadMoreBtn.disabled = false;
+    }
   } catch (error) {
     console.error('Failed to load portfolio photos:', error);
-    refs.loadMoreBtn.disabled = false;
+    refs.loadMoreBtn.hidden = true;
   } finally {
     refs.loadMoreBtn.removeAttribute('aria-busy');
     hideLoader(refs.loadMoreBtn);
@@ -185,9 +193,7 @@ async function onFilterClick(event) {
 
   resetGallery();
 
-  refs.loadMoreBtn.hidden = true;
   await fetchAndRenderPhotos(INITIAL_PHOTOS_LIMIT);
-  refs.loadMoreBtn.hidden = false;
 }
 
 function resetGallery() {
@@ -195,4 +201,5 @@ function resetGallery() {
   loadedCount = 0;
   totalPhotos = null;
   refs.loadMoreBtn.disabled = false;
+  refs.loadMoreBtn.hidden = false;
 }
