@@ -49,9 +49,6 @@ function initSwiper() {
     },
     breakpoints: {
       768: {
-        slidesPerView: 2,
-      },
-      1440: {
         slidesPerView: 3,
       },
     },
