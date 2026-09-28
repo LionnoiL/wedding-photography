@@ -7,6 +7,8 @@ import { notifyError } from './notifications.js';
 const listEl = document.querySelector('.feedbacks__list');
 const prevButton = document.querySelector('.feedbacks__button--prev');
 const nextButton = document.querySelector('.feedbacks__button--next');
+const navigationEl = document.querySelector('.feedbacks__navigation');
+
 
 function createFeedbackMarkup({ name, descr }) {
   return `
@@ -24,6 +26,12 @@ function createFeedbackMarkup({ name, descr }) {
 function updateNavigationState(swiper) {
   prevButton.disabled = swiper.isBeginning;
   nextButton.disabled = swiper.isEnd;
+}
+
+function hideNavigation() {
+  if (navigationEl) {
+    navigationEl.hidden = true;
+  }
 }
 
 function initSwiper() {
@@ -76,6 +84,8 @@ async function initFeedbacks() {
     initSwiper();
   } catch (error) {
     console.error(error);
+    hideNavigation();
+
   }
 }
 
