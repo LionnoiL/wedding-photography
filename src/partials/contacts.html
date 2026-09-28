@@ -81,7 +81,10 @@
           type="tel"
           name="telephone"
           class="contacts__input"
-          placeholder="+1 (202) 111 2323"
+          placeholder="380961234568"
+          inputmode="numeric"
+          pattern="[0-9]{12}"
+          maxlength="12"
           required
       /></label>
       <label class="contacts__label"
@@ -90,6 +93,7 @@
           name="message"
           class="contacts__textarea"
           rows="7"
+          maxlength="256"
           placeholder="Tell me a little about you and your special day. Don't forget to include your wedding date, venue, and what you're most excited about..."
         ></textarea>
       </label>

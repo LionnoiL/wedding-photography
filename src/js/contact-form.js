@@ -47,6 +47,21 @@ async function formHandler(event) {
     removeError(phoneInput);
   }
 
+  const messageInput = form.querySelector('[name="message"]');
+  const messageValue = messageInput.value.trim();
+
+  if (
+    messageValue !== '' &&
+    (messageValue.length < 5 || messageValue.length > 256)
+  ) {
+    isValid = false;
+    showError(messageInput);
+    notifyWarning('Your message must be between 5 and 256 characters!');
+    return;
+  } else {
+    removeError(messageInput);
+  }
+
   const info = event.target.elements;
   const formData = {
     name: info.username.value.trim(),
