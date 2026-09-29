@@ -2,13 +2,12 @@ import Swiper from 'swiper';
 import { Navigation, Pagination, Keyboard, A11y } from 'swiper/modules';
 
 import { getFeedbacks } from './api.js';
-import { notifyError } from './notifications.js';
+import { DEFAULT_FEEDBACKS_LIMIT } from './constants.js';
 
 const listEl = document.querySelector('.feedbacks__list');
 const prevButton = document.querySelector('.feedbacks__button--prev');
 const nextButton = document.querySelector('.feedbacks__button--next');
 const navigationEl = document.querySelector('.feedbacks__navigation');
-
 
 function createFeedbackMarkup({ name, descr }) {
   return `
@@ -71,7 +70,9 @@ async function initFeedbacks() {
   if (!listEl) return;
 
   try {
-    const { feedbacks } = await getFeedbacks({ limit: 10 });
+    const { feedbacks } = await getFeedbacks({
+      limit: DEFAULT_FEEDBACKS_LIMIT,
+    });
 
     listEl.innerHTML = feedbacks.map(createFeedbackMarkup).join('');
 
@@ -85,7 +86,6 @@ async function initFeedbacks() {
   } catch (error) {
     console.error(error);
     hideNavigation();
-
   }
 }
 
